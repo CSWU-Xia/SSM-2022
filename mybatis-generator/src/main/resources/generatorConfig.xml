@@ -1,0 +1,29 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--
+    id：设置一个唯一标识
+    targetRuntime
+    -->
+    <context id="simple" targetRuntime="MyBatis3Simple">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rm-bp190so0y6ag6an1iso.mysql.rds.aliyuncs.com/mybatis"
+                        userId="root"
+                        password="621700xX"/>
+
+        <!-- 设置JavaBean的生成策略 -->
+        <javaModelGenerator targetPackage="com.xiaxin.mybatis.mbg.bean" targetProject="src/main/java"/>
+
+        <!-- 设置sl映射文件的生成策略 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <!-- 设置Mapper接口的生成策略 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiaxin.mybatis.mbg.mapper"
+                             targetProject="src/main/java"/>
+
+        <!-- 逆向解析的表-->
+        <table tableName="tbl_dept" domainObjectName="Dept"/>
+        <table tableName="tbl_employee" domainObjectName="Employee"/>
+    </context>
+</generatorConfiguration>
