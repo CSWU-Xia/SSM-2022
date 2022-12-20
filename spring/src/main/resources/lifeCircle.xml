@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="person" class="com.xiaxin.spring.bean.Person" destroy-method="destoryPerson" init-method="initPerson">
+        <property name="id" value="1"/>
+        <property name="name" value="张三"/>
+    </bean>
+
+    <!--    装配后置处理里，为当前容器的每个bean装配 -->
+    <bean class="com.xiaxin.spring.process.MyPostProcessor" id="myPostProcessor"/>
 </beans>

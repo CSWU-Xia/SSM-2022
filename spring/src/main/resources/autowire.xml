@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    手动将deptDao装配到容器中-->
+    <bean class="com.xiaxin.spring.dao.impl.DeptDaoImpl" id="deptDao"></bean>
+    <!--    <bean class="com.xiaxin.spring.dao.impl.DeptDaoImpl" id="deptDao2"></bean>-->
+    <!--    将dao对象注入到service中
+    <bean class="com.xiaxin.spring.service.impl.DeptServiceImpl" id="deptService">
+        <property name="deptDao" ref="deptDao"/>
+    </bean>-->
+
+
+    <!--    自动装配-->
+    <!--
+    byName:对象中属性与容器中的beanId进行匹配，如果属性名与beanId一致即可完成自动装配
+    byType: 对象中属性的类型与容器中的class进行匹配，如果属性的类型与class唯一匹配即可完成自动装配
+    -->
+    <bean class="com.xiaxin.spring.service.impl.DeptServiceImpl" id="deptService" autowire="byName"></bean>
 
 </beans>

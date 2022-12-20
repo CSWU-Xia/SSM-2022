@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:druid.properties"/>
+    <!-- 将对象装配到IOC容器中-->
+    <bean id="stuZhenzhong" class="com.xiaxin.spring.bean.Student">
+        <property name="stuId" value="101"></property>
+        <property name="stuName" value="zhenzhong"></property>
+    </bean>
+
+    <bean id="stuConstruct" class="com.xiaxin.spring.bean.Student">
+        <constructor-arg name="stuId" value="102"></constructor-arg>
+        <constructor-arg name="stuName" value="construct"></constructor-arg>
+    </bean>
+
+    <bean id="stuP" class="com.xiaxin.spring.bean.Student" p:stuId="103" p:stuName="p命名空间">
+    </bean>
+
+
+    <bean id="dept1" class="com.xiaxin.spring.bean.Dept">
+        <property name="deptId" value="1"></property>
+        <property name="deptName" value="生产部"></property>
+    </bean>
+
+    <bean id="emp" class="com.xiaxin.spring.bean.Employee">
+        <property name="id" value="1"/>
+        <property name="lastName" value="张三"/>
+        <property name="email" value="14555@qq.com"/>
+        <property name="salary" value="3000.0"/>
+        <property name="dept" ref="dept1"/>
+        <property name="dept.deptName" value="财务部"/>
+    </bean>
+
+    <!--    内部bean -->
+    <bean id="innerEmp" class="com.xiaxin.spring.bean.Employee">
+        <property name="id" value="1"/>
+        <property name="lastName" value="张三"/>
+        <property name="email" value="14555@qq.com"/>
+        <property name="salary" value="3000.0"/>
+        <property name="dept">
+            <bean id="innerDept" class="com.xiaxin.spring.bean.Dept">
+                <property name="deptId" value="2"></property>
+                <property name="deptName" value="研发部"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!--    添加druid数据源 -->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+        <property name="url" value="${druid.url}"/>
+        <property name="driverClassName" value="${druid.driver}"/>
+        <property name="username" value="${druid.username}"/>
+        <property name="password" value="${druid.password}"/>
+    </bean>
+
+
+</beans>
