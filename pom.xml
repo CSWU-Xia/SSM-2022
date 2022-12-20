@@ -14,6 +14,7 @@
         <module>spring</module>
         <module>spring-beforeaop</module>
         <module>spring-aop</module>
+        <module>spring-jdbctemplate</module>
     </modules>
     <properties>
         <mysql.version>5.1.47</mysql.version>
@@ -89,6 +90,16 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
                 <version>${spring.version}</version>
             </dependency>
         </dependencies>
