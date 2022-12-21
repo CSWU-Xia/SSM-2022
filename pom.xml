@@ -16,6 +16,7 @@
         <module>spring-aop</module>
         <module>spring-jdbctemplate</module>
         <module>spring-translation</module>
+        <module>springmvc</module>
     </modules>
     <properties>
         <mysql.version>5.1.47</mysql.version>
@@ -102,6 +103,35 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+            <!--            <dependency>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-api</artifactId>
+                            <version>2.11.2</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-core</artifactId>
+                            <version>2.11.2</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-api</artifactId>
+                            <version>1.7.7</version>
+                        </dependency>-->
+            <!--            整合log4j2-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>2.11.2</version>
+            </dependency>
+
+            <!--            junit5-->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>5.5.2</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

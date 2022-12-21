@@ -1,17 +1,19 @@
 import com.xiaxin.translation.config.SpringConfig;
 import com.xiaxin.translation.service.BookShopService;
 import com.xiaxin.translation.service.CashierService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@ContextConfiguration(classes = SpringConfig.class)
-@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = SpringConfig.class)
+////@RunWith(SpringJUnit4ClassRunner.class)
+////Spring5整合junit5
+//@ExtendWith(SpringExtension.class)
+//整合为一个注解
+@SpringJUnitConfig(classes = SpringConfig.class)
 public class TestTransaction {
     @Autowired
     private BookShopService bookShopService;
