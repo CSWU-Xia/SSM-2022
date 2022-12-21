@@ -15,6 +15,7 @@
         <module>spring-beforeaop</module>
         <module>spring-aop</module>
         <module>spring-jdbctemplate</module>
+        <module>spring-translation</module>
     </modules>
     <properties>
         <mysql.version>5.1.47</mysql.version>
